@@ -56,18 +56,22 @@ form > button:is(:hover, :focus) {
   padding-left: 15px;
   padding-right: 15px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
 }
 .photo-card {
-  width: calc((100% - 120px) / 4);
   height: 100%;
   color: white;
   border-radius: 10px;
   font-size: small;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   transition: transform 250ms ease-in;
+}
+@media only screen and (min-width: 1200px) {
+  .photo-card {
+    width: calc((100% - 120px) / 4);
+  }
 }
 .photo-card:hover {
   transform: scale(1.1);
