@@ -9,6 +9,7 @@ const form = document.querySelector('.search-form');
 const gallery = document.querySelector('.gallery');
 const btnLoadMore = document.querySelector('.load-more-hidden');
 let page = 1;
+let lightbox = new SimpleLightbox('.gallery a');
 
 form.addEventListener('submit', fetchPhotos);
 btnLoadMore.addEventListener('click', onLoadMore);
@@ -20,13 +21,13 @@ async function fetchPhotos(e) {
     document.body.classList.remove('gradient');
     btnLoadMore.classList.replace('load-more', 'load-more-hidden');
 
-    const arrPhotos = await servisePixabay();
+    page = 1;
+    const arrPhotos = await servisePixabay(page);
     createMarkup(arrPhotos.hits);
-    onScroll();
 
     document.body.classList.add('gradient');
     Notify.success(`Hooray! We found ${arrPhotos.totalHits} images.`);
-    simpleLightbox();
+    lightbox.refresh();
   } catch (err) {
     console.log('TRY-CATCH:', err);
     Notify.failure(
@@ -44,16 +45,12 @@ async function onLoadMore() {
   const arrPhotos = await servisePixabay(page);
   createMarkup(arrPhotos.hits);
   onScroll();
-  simpleLightbox();
+  lightbox.refresh();
 
-  if (arrPhotos.totalHits / arrPhotos.hits.length <= page) {
+  if (arrPhotos.totalHits / arrPhotos.hits.length >= page) {
     btnLoadMore.classList.replace('load-more', 'load-more-hidden');
     Notify.info("We`re sorry, but you've reached the end of search results.");
   }
 }
 
 export { gallery, btnLoadMore, form };
-
-function simpleLightbox() {
-  let lightbox = new SimpleLightbox('.gallery a').refresh();
-}
