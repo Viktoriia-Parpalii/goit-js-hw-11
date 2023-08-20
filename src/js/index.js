@@ -46,11 +46,15 @@ async function onLoadMore() {
   createMarkup(arrPhotos.hits);
   onScroll();
   lightbox.refresh();
-
-  if (arrPhotos.totalHits / arrPhotos.hits.length >= page) {
+  // console.log(page * arrPhotos.hits.length);
+  if (
+    page * arrPhotos.hits.length >= arrPhotos.totalHits ||
+    page * arrPhotos.hits.length === 0
+  ) {
     btnLoadMore.classList.replace('load-more', 'load-more-hidden');
     Notify.info("We`re sorry, but you've reached the end of search results.");
   }
 }
 
 export { gallery, btnLoadMore, form };
+// page * arrPhotos.hits.length >= arrPhotos.totalHits;
