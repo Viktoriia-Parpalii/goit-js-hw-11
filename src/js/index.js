@@ -57,4 +57,3 @@ async function onLoadMore() {
 }
 
 export { gallery, btnLoadMore, form };
-// page * arrPhotos.hits.length >= arrPhotos.totalHits;
