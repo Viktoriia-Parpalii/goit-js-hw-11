@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: purple;
+}
+.gradient {
+  background-image: radial-gradient(
+    circle,
+    #ee82ee,
+    slateblue,
+    #ffd86a,
+    purple
+  );
+}
+.search-form {
+  width: 100%;
+  justify-content: center;
+  padding-top: 30px;
+  display: flex;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+form > input {
+  margin: 10px 0;
+  width: 20%;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  padding: 8px 10px;
+  border: 2px solid transparent;
+  color: purple;
+}
+form > input:is(:hover, :focus) {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+form > button {
+  margin: 10px 0;
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  display: flex;
+}
+form > button:is(:hover, :focus) {
+  color: purple;
+  background-color: rgba(236, 113, 236, 0.897);
+}
+.gallery {
+  margin: 15px auto;
+  max-width: 1160px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.photo-card {
+  width: calc((100% - 120px) / 4);
+  height: 100%;
+  color: white;
+  border-radius: 10px;
+  font-size: small;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 250ms ease-in;
+}
+.photo-card:hover {
+  transform: scale(1.1);
+}
+
+.img {
+  display: block;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 30vh;
+  object-fit: cover;
+}
+.info {
+  padding: 10px;
+  display: flex;
+  gap: 8px;
+}
+p {
+  margin: 0;
+}
+.info-item p {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.load-more {
+  cursor: pointer;
+  display: block;
+  margin: 30px auto;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background-color: white;
+  color: purple;
+}
+.load-more:is(:hover, :focus) {
+  background-color: rgba(0, 51, 153, 0.15);
+  border: 1px solid white;
+  color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.55);
+}
+.load-more-hidden {
+  display: none;
+}
+
+/*? BTN to top */
+.go-top {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  cursor: pointer;
+  display: none;
+  font-size: 20px;
+  color: purple;
+  border: 1px solid purple;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.521);
+  padding: 10px 10px;
+}
+
+.go-top:hover {
+  color: white;
+  border: 1px solid white;
+  background-color: rgba(0, 51, 153, 0.15);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.55);
+}
+
+.go-top--show {
+  display: block;
+}
